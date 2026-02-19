@@ -1577,16 +1577,22 @@ img {
   .hero-title {
     padding-left: 0;
     margin-bottom: 18px;
+    font-size: 25px;
+    line-height: 112%;
   }
 
   .hero-desc {
     padding-left: 0;
     margin-bottom: 18px;
+    font-size: 15px;
+    line-height: 127%;
   }
 
   .hero-button {
     margin-left: 0;
     padding: 10px;
+    font-size: 13px;
+    max-width: 277px;
   }
   .hero-button-arrow {
     width: 21px;
@@ -1628,15 +1634,18 @@ img {
   .message-team-title {
     font-size: 25px;
     margin-bottom: 20px;
+    line-height: 112%;
   }
 
   .message-team-desc {
     font-size: 15px;
     margin-bottom: 20px;
+    line-height: 147%;
   }
 
   .message-team-list {
     font-size: 13px;
+    line-height: 138%;
   }
 
   .message-team-list li {
@@ -1651,11 +1660,13 @@ img {
   .why-main-title {
     font-size: 25px;
     margin-bottom: 20px;
+    line-height: 112%;
   }
 
   .why-main-desc {
     font-size: 15px;
     margin-bottom: 25px;
+    line-height: 147%;
   }
 
   .why-block-icon {
@@ -1685,6 +1696,7 @@ img {
   .direction-title {
     font-size: 25px;
     margin-bottom: 26px;
+    line-height: 112%;
   }
 
   .direction-block-title {
@@ -1708,6 +1720,7 @@ img {
     font-size: 25px;
     margin-bottom: 25px;
     margin-left: 1px;
+    line-height: 112%;
   }
 
   .blog-img img {
@@ -1721,6 +1734,8 @@ img {
   .blog-info-title {
     font-size: 16px;
     margin-bottom: 8px;
+    max-width: 200px;
+    line-height: 110%;
   }
 
   .blog-info-desc {
@@ -1779,6 +1794,18 @@ img {
     margin-bottom: 11px;
   }
 
+  .footer-text {
+    line-height: 127%;
+  }
+
+  .footer-license {
+    line-height: 123%;
+  }
+
+  .footer-price {
+    line-height: 120%;
+  }
+
   .footer-tel {
     margin-left: auto;
     margin-right: auto;
@@ -1830,5 +1857,8 @@ img {
 
   .footer-center {
     gap: 11px;
+  }
+
+  .hero-button {
   }
 }
