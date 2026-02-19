@@ -734,7 +734,7 @@ img {
 
 .blog-info-date {
   font-weight: 300;
-  font-size: clamp(0.625rem, 0.5735rem + 0.1471vw, 0.75rem);
+  font-size: 12px;
   line-height: 167%;
   color: var(--color-blue);
 }
@@ -750,7 +750,7 @@ img {
 .blog-info-button {
   font-family: var(--font-family);
   font-weight: 400;
-  font-size: clamp(0.625rem, 0.5735rem + 0.1471vw, 0.75rem);
+  font-size: 12px;
   line-height: 88%;
   text-align: center;
   padding: 10px 10px;
@@ -802,7 +802,11 @@ img {
   border-color: transparent;
 }
 
-.blog-info-button:hover .blog-info-button::before {
+.blog-info-button:hover::before {
+  background: transparent;
+}
+
+.blog-info-button:hover::after {
   background: transparent;
 }
 
@@ -1189,6 +1193,13 @@ img {
   font-size: 20px;
   line-height: 147%;
   color: var(--color-theme);
+}
+
+.popup-form input::placeholder {
+  color: var(--color-theme);
+  font-size: 20px;
+  line-height: 147%;
+  font-weight: 300;
 }
 
 .popup-form .btn {
@@ -1815,5 +1826,9 @@ img {
   .header-info {
     font-size: 9px;
     line-height: 137%;
+  }
+
+  .footer-center {
+    gap: 11px;
   }
 }
