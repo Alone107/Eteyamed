@@ -389,14 +389,17 @@ img {
   align-items: center;
   font-family: var(--font-family);
   font-weight: 500;
-  font-size: clamp(0.8125rem, 0.5809rem + 0.6618vw, 1.375rem);
+  font-size: 22px;
   text-align: center;
   color: #fff;
   border-radius: 41px;
-  padding: 16px 16px;
+  padding: 16px 16px 16px 32px;
   box-shadow: 0 9px 31px 0 rgba(113, 184, 255, 0.09);
   background: var(--color-blue);
   margin-left: 25px;
+  max-width: 472px;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .hero-button-arrow {
@@ -477,7 +480,7 @@ img {
   margin-left: 44px;
   margin-top: 38px;
   position: relative;
-  max-width: 694px;
+  max-width: 925px;
 }
 
 .message-team-title {
@@ -514,6 +517,10 @@ img {
   bottom: 0;
   left: 50%;
   transform: translate(-50%, 0%);
+  max-width: 500px;
+  max-height: 500px;
+  width: 100%;
+  height: 100%;
 }
 
 .message-team-img {
@@ -736,12 +743,12 @@ img {
 .blog-info-button::before {
   content: "";
   position: absolute;
-  top: -0.52px; /* толщина границы + небольшой запас */
-  left: -0.52px;
-  right: -1.52px;
-  bottom: -0.52px;
+  top: -1px; /* толщина границы + небольшой запас */
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
   background: linear-gradient(90deg, #4d6fac 0%, #b1c0d0 100%);
-  border-radius: 15px; /* такое же скругление, как у родителя */
+  border-radius: 27px; /* такое же скругление, как у родителя */
   z-index: -1;
 }
 
@@ -755,7 +762,7 @@ img {
   background: rgba(113, 184, 255, 0.09);
   width: 100%;
   height: 100%;
-  border-radius: 15px;
+  border-radius: 27px;
   transition: all 0.7s;
 }
 
@@ -1235,6 +1242,13 @@ img {
   flex-direction: column;
 }
 
+@media (min-width: 1600px) {
+  .blog-info-button::after {
+    height: calc(100% - 1px);
+    width: calc(100% - 1px);
+    left: 1px;
+  }
+}
 @media (max-width: 1050px) {
   .header-right {
     width: 100%;
