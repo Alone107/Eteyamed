@@ -1702,6 +1702,9 @@ img {
   .footer-protivopokazania {
     font-size: 16px;
     line-height: 113%;
+    max-width: 290px;
+    margin-left: auto;
+    margin-right: auto;
   }
   .mobile-menu {
     display: grid;
