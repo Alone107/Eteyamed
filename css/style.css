@@ -764,6 +764,8 @@ img {
   height: 100%;
   border-radius: 27px;
   transition: all 0.7s;
+  height: calc(100% - 1px);
+  width: calc(100% - 1px);
 }
 
 .blog-info-button span {
