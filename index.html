@@ -1,0 +1,765 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans+Georgian:wght@100..900&family=Roboto+Condensed&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header-top">
+            <div class="header-left">
+              <a href="/" class="header-logo">
+                <img src="images/Header/logo.png" alt="Этеямед лого" />
+              </a>
+              <div class="header-info">
+                Истинное здоровье <br />
+                через комплексный подход
+              </div>
+            </div>
+            <div class="header-right">
+              <div class="header-right-mobile">
+                <div class="header-tel">
+                  <a class="header-phone-link" href="tel:+79999999999"
+                    >+7 (999) <span>999-99-99</span></a
+                  >
+                  <p class="header-adress">
+                    СПБ, ул. Лиственная 20, к.2, пом. 26-н
+                  </p>
+                </div>
+                <a href="#" class="button-custom btn-popup"
+                  >Записаться онлайн</a
+                >
+                <div class="header-buttons">
+                  <a class="header-search" href="#">
+                    <img src="images/Header/search.svg" alt="search" />
+                  </a>
+                  <a class="header-eye" href="#">
+                    <img src="images/Header/eay.svg" alt="eay" />
+                  </a>
+                  <a class="header-user" href="#">
+                    <img src="images/Header/user.svg" alt="user" />
+                  </a>
+                </div>
+              </div>
+              <div class="header-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+          </div>
+          <div class="header-bottom">
+            <ul class="menu header-menu">
+              <li class="menu-item menu-item-has-children">
+                <a href="#">О нас </a>
+                <div class="arrow-menu-1">
+                  <picture>
+                    <img src="images/Header/arrow-down-blue.svg" alt="MDN" />
+                  </picture>
+                  <div class="arrow-menu-mobile-open">
+                    <svg
+                      width="12"
+                      height="12"
+                      viewBox="0 0 12 12"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M1.51498 0.263347C1.17158 -0.0845984 0.61113 -0.0882813 0.263185 0.255121C-0.0847616 0.598523 -0.0884438 1.15897 0.254958 1.50692L0.884969 0.885132L1.51498 0.263347ZM10.6504 11.6708C11.1393 11.6741 11.5382 11.2804 11.5414 10.7915L11.5938 2.82512C11.597 2.33627 11.2033 1.93736 10.7144 1.93415C10.2256 1.93094 9.82666 2.32463 9.82345 2.81349L9.77691 9.89471L2.69569 9.84818C2.20683 9.84497 1.80793 10.2387 1.80472 10.7275C1.80151 11.2164 2.1952 11.6153 2.68405 11.6185L10.6504 11.6708ZM0.884969 0.885132L0.254958 1.50692L10.0262 11.4075L10.6562 10.7857L11.2863 10.1639L1.51498 0.263347L0.884969 0.885132Z"
+                        fill="#003C7E"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <ul class="sub-menu">
+                  <li class="menu-item">
+                    <a href="#">Пункт меню 2-го уровня</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="menu-item menu-item-has-children">
+                <a href="#">Услуги и цены</a>
+                <div class="arrow-menu-1">
+                  <picture>
+                    <img src="images/Header/arrow-down-blue.svg" alt="MDN" />
+                  </picture>
+                  <div class="arrow-menu-mobile-open">
+                    <svg
+                      width="12"
+                      height="12"
+                      viewBox="0 0 12 12"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M1.51498 0.263347C1.17158 -0.0845984 0.61113 -0.0882813 0.263185 0.255121C-0.0847616 0.598523 -0.0884438 1.15897 0.254958 1.50692L0.884969 0.885132L1.51498 0.263347ZM10.6504 11.6708C11.1393 11.6741 11.5382 11.2804 11.5414 10.7915L11.5938 2.82512C11.597 2.33627 11.2033 1.93736 10.7144 1.93415C10.2256 1.93094 9.82666 2.32463 9.82345 2.81349L9.77691 9.89471L2.69569 9.84818C2.20683 9.84497 1.80793 10.2387 1.80472 10.7275C1.80151 11.2164 2.1952 11.6153 2.68405 11.6185L10.6504 11.6708ZM0.884969 0.885132L0.254958 1.50692L10.0262 11.4075L10.6562 10.7857L11.2863 10.1639L1.51498 0.263347L0.884969 0.885132Z"
+                        fill="#003C7E"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <ul class="sub-menu">
+                  <li class="menu-item">
+                    <a href="#">Классическая гомеопатия</a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="#">Терапия</a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="#">Педиатрия</a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="#">Неврология</a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="#">Эндокринология</a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="#">Психология</a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="#">Нутрициология</a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="#">Остеопатия</a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="#">Иглорефлексотерапия</a>
+                  </li>
+                  <li class="menu-item menu-item-has-children">
+                    <a href="#">Диагностика</a>
+                    <div class="arrow-menu-2">
+                      <img src="images/Header/arrow-right-white.svg" alt="" />
+                    </div>
+                    <ul class="sub-menu">
+                      <li class="menu-item">
+                        <a href="#">Пункт меню 3-го уровня</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="menu-item">
+                    <a href="#">Массаж медицинский</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="menu-item">
+                <a href="#">Врачи</a>
+              </li>
+              <li class="menu-item">
+                <a href="#">Обучение</a>
+              </li>
+              <li class="menu-item">
+                <a href="#">Блог</a>
+              </li>
+              <li class="menu-item">
+                <a href="#">Отзывы</a>
+              </li>
+              <li class="menu-item">
+                <a href="#">Акции</a>
+              </li>
+              <li class="menu-item">
+                <a href="#">Контакты</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <main class="main">
+        <section class="hero bg-left">
+          <div class="container">
+            <div class="hero-wrapper">
+              <div class="hero-bg">
+                <picture>
+                  <source
+                    srcset="images/Main/Mask-hero-mobile.png"
+                    media="(max-width: 767px)"
+                  />
+                  <img src="images/Main/Mask-hero-desc.png" alt="" />
+                </picture>
+              </div>
+              <div class="hero-wrap">
+                <h1 class="hero-title">
+                  Возвращаем устойчивое здоровье, объединяя традиционные и
+                  альтернативные методики
+                </h1>
+                <p class="hero-desc">
+                  Клиническая точность и комплексный подход - истинное здоровье
+                  на ментальном, эмоциональном и физическом уровнях.
+                </p>
+                <button class="hero-button">
+                  <span>Записаться на первичный приём</span>
+                  <div class="hero-button-arrow">
+                    <img src="images/Main/icon/arrow-right-blue.svg" alt="" />
+                  </div>
+                </button>
+              </div>
+              <div class="hero-row">
+                <div class="hero-row-block">
+                  <div class="hero-row-block-icon">
+                    <img src="images/Main/icon/mark.svg" alt="" />
+                  </div>
+                  <div class="hero-row-block-info">
+                    <h2 class="hero-row-block-title">
+                      Все в одном <br />
+                      месте
+                    </h2>
+                    <p class="hero-row-block-desc">
+                      Специалисты, диагностика, процедуры
+                    </p>
+                  </div>
+                </div>
+                <div class="hero-row-block">
+                  <div class="hero-row-block-icon">
+                    <img src="images/Main/icon/mark.svg" alt="" />
+                  </div>
+                  <div class="hero-row-block-info">
+                    <h2 class="hero-row-block-title">Многопрофильные врачи</h2>
+                    <p class="hero-row-block-desc">Видят картину целиком</p>
+                  </div>
+                </div>
+                <div class="hero-row-block">
+                  <div class="hero-row-block-icon">
+                    <img src="images/Main/icon/mark.svg" alt="" />
+                  </div>
+                  <div class="hero-row-block-info">
+                    <h2 class="hero-row-block-title">Обучение</h2>
+                    <p class="hero-row-block-desc">
+                      Для самостоятельной поддержки результата
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="message-team bg-right">
+          <div class="container">
+            <div class="message-team-wrapper">
+              <div class="message-team-block">
+                <h2 class="message-team-title">От всей нашей команды</h2>
+                <p class="message-team-desc">
+                  На базе нашей клиники мы не только можем провести диагностику
+                  и оказать <br />
+                  консультацию, но и провести малоинвазивные операции, в том
+                  числе по <br />
+                  флебологии, урологии, проктологии и общей хирургии. <br />
+                  После манипуляции вы будете размещены в комфортной палате
+                  дневного <br />
+                  стационара.
+                </p>
+                <ul class="message-team-list">
+                  <li>
+                    Мы работаем в соответствии с принципами доказательной
+                    медицины и ориентируемся на последние международные
+                    протоколы лечения и актуальные качественные исследования.
+                    Такой подход гарантирует высокий уровень эффективности и
+                    надежности диагностики, терапии и профилактики заболеваний.
+                  </li>
+                  <li>
+                    Мы очень тщательно относимся к подбору персонала и
+                    внимательно следим за тем, чтобы люди, работающие в нашей
+                    команде, разделяли наши ценности и принципы лечения и
+                    диагностики. Мы непрерывно способствуем обучению наших
+                    врачей, как на базе нашей клиники в рамках проекта Doc2Doc,
+                    так и на базе образовательных учреждений, повышая
+                    квалификацию врачей и расширяя их навыки.
+                  </li>
+                </ul>
+                <div class="message-team-block-bg">
+                  <img src="images/Main/bg-team.png" alt="" />
+                </div>
+              </div>
+              <div class="message-team-img">
+                <img src="images/Main/women.png" alt="" />
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="why-main">
+          <div class="container">
+            <h2 class="why-main-title">
+              Почему в Этеямед лечение становится сотрудничеством?
+            </h2>
+            <p class="why-main-desc">
+              Мы ищем причину, а не заглушаем симптомы. Используем сильные
+              стороны разных подходов для создания вашего индивидуального
+              плана. Цель — Ваше благополучие и независимость от таблеток.
+            </p>
+            <div class="why-blocks">
+              <div class="why-block">
+                <div class="why-block-icon">
+                  <img
+                    src="images/Main/icon/why-1.svg"
+                    alt="Слушаем и анализируем"
+                  />
+                </div>
+                <div class="why-block-info">
+                  <h3 class="why-block-info-title">
+                    Слушаем <br />
+                    и анализируем
+                  </h3>
+                  <p class="why-block-info-desc">
+                    Глубокий сбор анамнеза, чтобы увидеть картину целиком.
+                  </p>
+                </div>
+              </div>
+              <div class="why-block">
+                <div class="why-block-icon">
+                  <img
+                    src="images/Main/icon/why-2.svg"
+                    alt="Объясняем и согласовываем"
+                  />
+                </div>
+                <div class="why-block-info">
+                  <h3 class="why-block-info-title">
+                    Объясняем <br />
+                    и согласовываем
+                  </h3>
+                  <p class="why-block-info-desc">
+                    План лечения — это предмет обсуждения. Вы понимаете логику
+                    каждого назначения.
+                  </p>
+                </div>
+              </div>
+              <div class="why-block">
+                <div class="why-block-icon">
+                  <img
+                    src="images/Main/icon/why-3.svg"
+                    alt="Сопровождаем к результату"
+                  />
+                </div>
+                <div class="why-block-info">
+                  <h3 class="why-block-info-title">
+                    Сопровождаем <br />
+                    к результату
+                  </h3>
+                  <p class="why-block-info-desc">
+                    Контролируем динамику, корректируем маршрут. Ваше здоровье —
+                    наше общее дело.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="directions bg-left">
+          <div class="container">
+            <h2 class="direction-title">Направления лечения</h2>
+            <div class="direction-wrapper">
+              <a href="#" class="direction-block">
+                <div class="direction-block-icon">
+                  <img
+                    src="images/Main/icon/classical-homeopathy.svg"
+                    alt="КЛАССИЧЕСКАЯ ГОМЕОПАТИЯ"
+                  />
+                </div>
+                <div class="direction-block-title">КЛАССИЧЕСКАЯ ГОМЕОПАТИЯ</div>
+                <div class="direction-block-icon-bg">
+                  <img src="images/Main/icon/mark-direction.svg" alt="" />
+                </div>
+              </a>
+              <a href="#" class="direction-block">
+                <div class="direction-block-icon">
+                  <img src="images/Main/icon/terapia.svg" alt="ТЕРАПИЯ" />
+                </div>
+                <div class="direction-block-title">ТЕРАПИЯ</div>
+                <div class="direction-block-icon-bg">
+                  <img src="images/Main/icon/mark-direction.svg" alt="" />
+                </div>
+              </a>
+              <a href="#" class="direction-block">
+                <div class="direction-block-icon">
+                  <img src="images/Main/icon/pediatria.svg" alt="ПЕДИАТРИЯ" />
+                </div>
+                <div class="direction-block-title">ПЕДИАТРИЯ</div>
+                <div class="direction-block-icon-bg">
+                  <img src="images/Main/icon/mark-direction.svg" alt="" />
+                </div>
+              </a>
+              <a href="#" class="direction-block">
+                <div class="direction-block-icon">
+                  <img src="images/Main/icon/nevrologia.svg" alt="НЕВРОЛОГИЯ" />
+                </div>
+                <div class="direction-block-title">НЕВРОЛОГИЯ</div>
+                <div class="direction-block-icon-bg">
+                  <img src="images/Main/icon/mark-direction.svg" alt="" />
+                </div>
+              </a>
+              <a href="#" class="direction-block">
+                <div class="direction-block-icon">
+                  <img
+                    src="images/Main/icon/endokrinologia.svg"
+                    alt="ЭНДОКРИНОЛОГИЯ"
+                  />
+                </div>
+                <div class="direction-block-title">ЭНДОКРИНОЛОГИЯ</div>
+                <div class="direction-block-icon-bg">
+                  <img src="images/Main/icon/mark-direction.svg" alt="" />
+                </div>
+              </a>
+              <a href="#" class="direction-block">
+                <div class="direction-block-icon">
+                  <img src="images/Main/icon/psyhologia.svg" alt="ПСИХОЛОГИЯ" />
+                </div>
+                <div class="direction-block-title">ПСИХОЛОГИЯ</div>
+                <div class="direction-block-icon-bg">
+                  <img src="images/Main/icon/mark-direction.svg" alt="" />
+                </div>
+              </a>
+              <a href="#" class="direction-block">
+                <div class="direction-block-icon">
+                  <img
+                    src="images/Main/icon/nutriciologia.svg"
+                    alt="НУТРИЦИОЛОГИЯ"
+                  />
+                </div>
+                <div class="direction-block-title">НУТРИЦИОЛОГИЯ</div>
+                <div class="direction-block-icon-bg">
+                  <img src="images/Main/icon/mark-direction.svg" alt="" />
+                </div>
+              </a>
+              <a href="#" class="direction-block">
+                <div class="direction-block-icon">
+                  <img
+                    src="images/Main/icon/osteopatiya.svg"
+                    alt="ОСТЕОПАТИЯ"
+                  />
+                </div>
+                <div class="direction-block-title">ОСТЕОПАТИЯ</div>
+                <div class="direction-block-icon-bg">
+                  <img src="images/Main/icon/mark-direction.svg" alt="" />
+                </div>
+              </a>
+              <a href="#" class="direction-block">
+                <div class="direction-block-icon">
+                  <img
+                    src="images/Main/icon/iglorefleksoterapia.svg"
+                    alt="ИГЛОРЕФЛЕКСОТЕРАПИЯ"
+                  />
+                </div>
+                <div class="direction-block-title">ИГЛОРЕФЛЕКСОТЕРАПИЯ</div>
+                <div class="direction-block-icon-bg">
+                  <img src="images/Main/icon/mark-direction.svg" alt="" />
+                </div>
+              </a>
+              <a href="#" class="direction-block">
+                <div class="direction-block-icon">
+                  <img src="images/Main/icon/diagnostic.svg" alt="" />
+                </div>
+                <div class="direction-block-title">ДИАГНОСТИКА</div>
+                <div class="direction-block-icon-bg">
+                  <img src="images/Main/icon/mark-direction.svg" alt="" />
+                </div>
+              </a>
+              <a href="#" class="direction-block">
+                <div class="direction-block-icon">
+                  <img
+                    src="images/Main/icon/massage-medical.svg"
+                    alt="МАССАЖ МЕДИЦИНСКИЙ"
+                  />
+                </div>
+                <div class="direction-block-title">МАССАЖ МЕДИЦИНСКИЙ</div>
+                <div class="direction-block-icon-bg">
+                  <img src="images/Main/icon/mark-direction.svg" alt="" />
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
+        <section class="blog">
+          <div class="container">
+            <h2 class="blog-title">Блог</h2>
+            <div class="blog-wrapper">
+              <!-- Slider main container -->
+              <div class="swiper swiper-blog">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                  <!-- Slides -->
+                  <div class="swiper-slide">
+                    <article class="blog-block">
+                      <div class="blog-img">
+                        <img src="images/Main/blog-1.png" alt="blog-1" />
+                      </div>
+                      <div class="blog-info">
+                        <h3 class="blog-info-title">
+                          Личный кабинет — регистрируйтесь!
+                        </h3>
+                        <p class="blog-info-desc">
+                          Рады сообщить, что для удобства клиентов сети
+                          медцентров компании «Этеямед» стал доступен личный
+                          кабинет, созданный спец... Рады сообщить, что для
+                          удобства клиентов сети медцентров компании «Этеямед»
+                          стал доступен личный кабинет, созданный спец...
+                        </p>
+                        <div class="blog-info-row">
+                          <div class="blog-info-date">
+                            <span class="visually-hidden">Дата публикации:</span
+                            >07.02.2026
+                          </div>
+                          <a
+                            class="blog-info-button"
+                            aria-label="Читать статью 'Личный кабинет — регистрируйтесь!'"
+                            href="#"
+                            >Подробнее...</a
+                          >
+                        </div>
+                      </div>
+                    </article>
+                  </div>
+                  <div class="swiper-slide">
+                    <article class="blog-block">
+                      <div class="blog-img">
+                        <img
+                          src="images/Main/blog-2.png"
+                          alt="Личный кабинет"
+                        />
+                      </div>
+                      <div class="blog-info">
+                        <h3 class="blog-info-title">
+                          Личный кабинет — регистрируйтесь!
+                        </h3>
+                        <p class="blog-info-desc">
+                          Рады сообщить, что для удобства клиентов сети
+                          медцентров компании «Этеямед» стал доступен личный
+                          кабинет, созданный спец...
+                        </p>
+                        <div class="blog-info-row">
+                          <div class="blog-info-date">
+                            <span class="visually-hidden">Дата публикации:</span
+                            >07.02.2026
+                          </div>
+                          <a
+                            class="blog-info-button"
+                            aria-label="Читать статью 'Личный кабинет — регистрируйтесь!'"
+                            href="#"
+                            >Подробнее...</a
+                          >
+                        </div>
+                      </div>
+                    </article>
+                  </div>
+                  <div class="swiper-slide">
+                    <article class="blog-block">
+                      <div class="blog-img">
+                        <img src="images/Main/blog-3.png" alt="blog-3" />
+                      </div>
+                      <div class="blog-info">
+                        <h3 class="blog-info-title">
+                          Личный кабинет — регистрируйтесь!
+                        </h3>
+                        <p class="blog-info-desc">
+                          Рады сообщить, что для удобства клиентов сети
+                          медцентров компании «Этеямед» стал доступен личный
+                          кабинет, созданный спец...
+                        </p>
+                        <div class="blog-info-row">
+                          <div class="blog-info-date">
+                            <span class="visually-hidden">Дата публикации:</span
+                            >07.02.2026
+                          </div>
+                          <a
+                            class="blog-info-button"
+                            aria-label="Читать статью 'Личный кабинет — регистрируйтесь!'"
+                            href="#"
+                            >Подробнее...</a
+                          >
+                        </div>
+                      </div>
+                    </article>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <a href="#" class="blog-more" aria-label="Все статьи">Все статьи</a>
+          </div>
+        </section>
+      </main>
+      <footer class="footer">
+        <div class="footer-map">
+          <div id="map-test" class="map-footer"></div>
+          <div class="footer-map-block">
+            <span class="footer-map-block-span">Мы находимся:</span>
+            <div class="footer-map-block-row">
+              <img src="images/Main/icon/adress-icon.svg" alt="" />
+              <div>
+                Санкт-Петербург, <br />
+                ул. Центральная, д. 45 <br />
+                <span>Метро:</span>
+                Восстания
+              </div>
+            </div>
+            <div class="footer-map-block-row">
+              <img src="images/Main/icon/phone-icon.svg" alt="" />
+              <a href="#">+7 (999) <span>999-99-99</span></a>
+            </div>
+            <div class="footer-map-block-row">
+              <img src="images/Main/icon/time-icon.svg" alt="" />
+              <div>
+                <span>График работы: <br /></span> ежедневно с 8.00 до 20.00
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <div class="footer-wrapper">
+              <div class="footer-left">
+                <a href="/" class="footer-logo">
+                  <img src="images/Header/logo.png" alt="Этеямед лого" />
+                </a>
+                <a href="#" class="footer-tel"
+                  >+7 (999) <span>999-99-99</span></a
+                >
+                <div class="footer-text">
+                  ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ "ЭТЕЯМЕД"
+                </div>
+                <div class="footer-license">
+                  Лицензия № ХХХХХХХХХХ от 00.00.202_г.
+                </div>
+              </div>
+              <div class="footer-center">
+                <ul class="menu footer-menu">
+                  <li class="menu-item">
+                    <a href="#">Документация</a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="#">Соглашение о персональных данных</a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="#">Политика конфиденциальности</a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="#">Прейскурант</a>
+                  </li>
+                </ul>
+                <ul class="menu footer-menu">
+                  <li class="menu-item">
+                    <a href="#">Вопрос-ответ</a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="#">Обратная связь</a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="#">Карта сайта</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="footer-right">
+                <div class="footer-price">
+                  Размещенный прайс не является офертой. <br />
+                  Медицинские услуги оказываются на основании договора.
+                </div>
+                <div class="footer-gos">
+                  <img src="images/Footer/rf.svg" alt="" />
+                  <img src="images/Footer/Gosuslugi.png" alt="" />
+                </div>
+              </div>
+            </div>
+            <div class="footer-protivopokazania">
+              Имеются противопоказания. Необходимо проконсультироваться со
+              специалистом
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      <div class="mobile-menu">
+        <a href="#" class="mobile-menu-block" aria-label="Услуги">
+          <img src="images/Footer/service.svg" alt="" />
+          <span>Услуги</span>
+        </a>
+        <a href="#" class="mobile-menu-block" aria-label="Врачи">
+          <img src="images/Footer/doctor.svg" alt="" />
+          <span>Врачи</span>
+        </a>
+        <a href="#" class="mobile-menu-block" aria-label="Позвонить">
+          <img src="images/Footer/phone-white.svg" alt="" />
+          <span>Позвонить</span>
+        </a>
+        <a href="#" class="mobile-menu-block" aria-label="Записаться">
+          <img src="images/Footer/calendar.svg" alt="" />
+          <span>Записаться</span>
+        </a>
+      </div>
+
+      <div class="popup-call">
+        <div class="popup-wrapper">
+          <div class="popup-close">
+            <div class="close-circle">
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <div class="popup-logo">
+            <img src="images/Footer/logo-popup.png" alt="" />
+          </div>
+          <div class="popup-title">Заказать звонок</div>
+          <div class="popup-text">
+            Мы Вам перезвоним в ближайшее время на Ваш номер телефона!
+          </div>
+          <div class="popup-form">
+            <form class="form">
+              <span class="wpcf7-form-control-wrap">
+                <label for="popup-phone" class="label-custom"
+                  >Введите номер телефона</label
+                >
+                <input type="tel" class="phone" id="popup-phone" />
+              </span>
+              <button class="btn">Позвоните мне</button>
+              <span class="wpcf7-form-control-wrap">
+                <input
+                  type="checkbox"
+                  class="custom-check"
+                  id="custom-checkbox"
+                />
+                <label for="custom-checkbox"
+                  >Нажимая на кнопку, Вы даете согласие на обработку
+                  персональных данных.</label
+                >
+              </span>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+  <script src="js/maska-nomera.js"></script>
+
+  <script>
+    $(".phone").mask("+7 (999) 999-99-99");
+
+    $.fn.setCursorPosition = function (pos) {
+      if ($(this).get(0).setSelectionRange) {
+        $(this).get(0).setSelectionRange(pos, pos);
+      } else if ($(this).get(0).createTextRange) {
+        var range = $(this).get(0).createTextRange();
+        range.collapse(true);
+        range.moveEnd("character", pos);
+        range.moveStart("character", pos);
+        range.select();
+      }
+    };
+
+    $('input[type="tel"]').click(function () {
+      $(this).setCursorPosition(4); // set position number
+    });
+  </script>
+  <script src="js/swiper-bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</html>
