@@ -728,8 +728,40 @@ img {
   border-radius: 27px;
   color: var(--color-blue);
   box-shadow: 0 6px 21px 0 rgba(113, 184, 255, 0.09);
-  border: 1px solid var(--color-blue);
   transition: all 0.7s;
+  background: #fffaf4;
+  position: relative;
+}
+
+.blog-info-button::before {
+  content: "";
+  position: absolute;
+  top: -0.52px; /* толщина границы + небольшой запас */
+  left: -0.52px;
+  right: -0.52px;
+  bottom: -0.52px;
+  background: linear-gradient(90deg, #4d6fac 0%, #b1c0d0 100%);
+  border-radius: 15px; /* такое же скругление, как у родителя */
+  z-index: -1;
+}
+
+.blog-info-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(22.7524032593px);
+  box-shadow: 0 4px 4px 0 rgba(208, 230, 244, 0.5);
+  background: rgba(113, 184, 255, 0.09);
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  transition: all 0.7s;
+}
+
+.blog-info-button span {
+  z-index: 2;
+  position: relative;
 }
 
 .blog-info-button:hover {
@@ -737,6 +769,10 @@ img {
   background: linear-gradient(90deg, #4d6fac 0%, #b1c0d0 100%);
   color: #fff;
   border-color: transparent;
+}
+
+.blog-info-button:hover .blog-info-button::before {
+  background: transparent;
 }
 
 .blog-more {
