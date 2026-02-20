@@ -215,3 +215,60 @@ if (swiperLicenses) {
     },
   });
 }
+
+const swiperCustomDoctor2 = document.querySelector(".swiper-custom-doctor2");
+
+if (swiperCustomDoctor) {
+  const swiper = new Swiper(".swiper-custom-doctor", {
+    slidesPerView: 3,
+    centeredSlides: true,
+    initialSlide: 1,
+
+    spaceBetween: 10,
+
+    // Navigation arrows
+    navigation: {
+      nextEl: ".swiper-button-next-doctor",
+      prevEl: ".swiper-button-prev-doctor",
+    },
+  });
+}
+
+const swiperCustomDoctor = document.querySelector(".swiper-custom-doctor");
+
+if (swiperCustomDoctor) {
+  // Инициализация Swiper
+  const swiper = new Swiper(".swiper-custom-doctor", {
+    slidesPerView: 3,
+    spaceBetween: 30,
+    centeredSlides: true,
+    loop: true,
+    navigation: {
+      nextEl: ".swiper-button-next-doctor",
+      prevEl: ".swiper-button-prev-doctor",
+    },
+  });
+
+  // Функция обновления центрального блока
+  function updateCenterCard(slideElement) {
+    const centerCard = document.getElementById("center-doctor-card");
+    const slideContent = slideElement
+      .querySelector(".doctor-card")
+      .cloneNode(true);
+
+    // Очищаем и обновляем центральный блок
+    centerCard.innerHTML = "";
+    centerCard.appendChild(slideContent);
+  }
+
+  // Обработчик смены слайда
+  swiper.on("slideChange", function () {
+    const activeSlide = swiper.slides[swiper.activeIndex];
+    updateCenterCard(activeSlide);
+  });
+
+  // Инициализация: устанавливаем первый слайд в центр
+  document.addEventListener("DOMContentLoaded", function () {
+    updateCenterCard(swiper.slides[swiper.activeIndex]);
+  });
+}

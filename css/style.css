@@ -1674,21 +1674,265 @@ section.banner {
 }
 
 .doctor-card {
-  border: 0.51px solid rgba(251, 253, 255, 0.37);
-  border-radius: 20px;
-  backdrop-filter: blur(22.7524032593px);
-  box-shadow: 0 4px 4px 0 rgba(208, 230, 244, 0.5);
-  background: rgba(113, 184, 255, 0.09);
-  max-width: 75%;
+  transition: all 0.7s;
+}
+
+.doctor-card__content {
+  width: 0;
+  opacity: 0;
+  height: 0;
+}
+
+.doctor-card__media {
+  width: 100%;
+  flex-shrink: 0;
+  width: 282px;
+  height: 251px;
 }
 
 .doctor-card-wrapper {
   display: flex;
   gap: 35px;
+  align-items: flex-end;
+  justify-content: center;
+  margin-bottom: 27px;
 }
 
 .doctor-card__media {
   margin-top: -45px;
+  position: relative;
+}
+
+.doctor-card__media img {
+  z-index: 2;
+  position: relative;
+}
+
+.doctor-card__media::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 69%;
+  transform: translate(-50%, -50%);
+  background: url("../images/Services/slider-mark.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 139px;
+  height: 154px;
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.7s;
+}
+
+.doctor-card__name {
+  font-family: var(--second-family);
+  font-weight: 400;
+  font-size: clamp(1.375rem, 1.2391rem + 0.3215vw, 1.625rem);
+  line-height: 123%;
+  color: var(--color-blue);
+  margin-bottom: 9px;
+}
+
+.doctor-card__meta {
+  text-align: center;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: clamp(0.875rem, 0.8071rem + 0.1608vw, 1rem);
+  text-align: center;
+  color: var(--color-theme);
+  margin-bottom: 13px;
+}
+
+.doctor-card__reviews-link {
+  position: relative;
+  color: var(--color-blue);
+}
+
+.doctor-card__reviews-link::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--color-blue);
+}
+
+.doctor-card__specialties {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: clamp(0.875rem, 0.7391rem + 0.3215vw, 1.125rem);
+  line-height: 133%;
+  text-align: center;
+  color: #000;
+  margin-bottom: 13px;
+}
+
+.doctor-card__pricing {
+  display: flex;
+  justify-content: space-between;
+}
+
+.doctor-card__service {
+  font-family: var(--second-family);
+  font-weight: 400;
+  font-size: clamp(1rem, 0.9321rem + 0.1608vw, 1.125rem);
+  line-height: 178%;
+  color: var(--color-blue);
+}
+
+.doctor-card__price {
+  font-family: var(--second-family);
+  font-weight: 400;
+  font-size: clamp(1rem, 0.7962rem + 0.4823vw, 1.375rem);
+  line-height: 145%;
+  text-align: right;
+  color: var(--color-blue);
+  padding-right: 25px;
+}
+
+.doctor-card__actions {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  padding-right: 39px;
+  opacity: 0;
+  width: 0;
+}
+
+.swiper-custom-doctor {
+  padding-top: 45px;
+}
+
+.button-custom.doctor-card__action--record {
+  width: 100%;
+  max-width: 336px;
+  height: 45px;
+  padding: 13px 16px;
+}
+
+.doctor-card__action--more {
+  padding: 10px 10px;
+  border-radius: 27px;
+  color: var(--color-blue);
+  box-shadow: 0 6px 21px 0 rgba(113, 184, 255, 0.09);
+  transition: all 0.7s;
+  background: #fffaf4;
+  position: relative;
+  max-width: 336px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.doctor-card__action--more::before {
+  content: "";
+  position: absolute;
+  top: -1px; /* толщина границы + небольшой запас */
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  background: linear-gradient(90deg, #4d6fac 0%, #b1c0d0 100%);
+  border-radius: 27px; /* такое же скругление, как у родителя */
+  z-index: -1;
+}
+
+.doctor-card__action--more::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(22.7524032593px);
+  box-shadow: 0 4px 4px 0 rgba(208, 230, 244, 0.5);
+  background: rgba(113, 184, 255, 0.09);
+  width: 100%;
+  height: 100%;
+  border-radius: 27px;
+  transition: all 0.7s;
+  height: calc(100% - 1px);
+  width: calc(100% - 1px);
+}
+
+.doctor-card__action--more span {
+  z-index: 2;
+  position: relative;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 66%;
+  text-align: center;
+  color: var(--color-blue);
+}
+
+.doctor-card__action--more:hover {
+  box-shadow: 0 6px 21px 0 rgba(113, 184, 255, 0.09);
+  background: linear-gradient(90deg, #4d6fac 0%, #b1c0d0 100%);
+  color: #fff;
+  border-color: transparent;
+}
+
+.doctor-card__action--more:hover::before {
+  background: transparent;
+}
+
+.doctor-card__action--more:hover::after {
+  background: transparent;
+}
+
+.swiper-custom-doctor .swiper-slide.swiper-slide-active {
+  width: 100% !important;
+  flex-shrink: 0;
+  max-width: 60%;
+}
+
+.swiper-custom-doctor .swiper-slide {
+  width: 20% !important;
+}
+
+.swiper-custom-doctor .swiper-slide-active .doctor-card__content,
+.swiper-custom-doctor .swiper-slide-active .doctor-card__actions {
+  opacity: 1;
+  width: 100%;
+  height: auto;
+}
+
+.swiper-custom-doctor .swiper-slide-active .doctor-card__media::after {
+  opacity: 1;
+}
+
+.swiper-custom-doctor .swiper-slide-active .doctor-card {
+  border: 0.51px solid rgba(251, 253, 255, 0.37);
+  border-radius: 20px;
+  backdrop-filter: blur(22.7524032593px);
+  box-shadow: 0 4px 4px 0 rgba(208, 230, 244, 0.5);
+  background: rgba(113, 184, 255, 0.09);
+  width: 100%;
+  padding-bottom: 21px;
+  padding-left: 39px;
+}
+
+.doctor-card--center {
+  position: relative;
+  z-index: 10;
+  margin: 0 auto 40px;
+  max-width: 400px; /* Фиксированная ширина */
+  transform: scale(1.1); /* Визуальное выделение */
+  transition: transform 0.3s ease;
+}
+
+.doctor-card--center:hover {
+  transform: scale(1.12);
+}
+
+/* Скрываем стрелки за центральным блоком */
+.swiper-button-custom {
+  z-index: 5;
+}
+
+/* Позиционирование слайдера относительно центрального блока */
+.swiper-custom-doctor {
+  margin-top: -100px; /* Наложение слайдов под центральным блоком */
 }
 
 @media (min-width: 1600px) {
