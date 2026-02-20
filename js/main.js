@@ -47,26 +47,78 @@ if (burger) {
   }
 }
 
-document.addEventListener("click", function (event) {
-  const arrow = event.target.closest(".arrow-menu-1, .arrow-menu-2");
-  if (!arrow) return;
+const menuItems = document.querySelectorAll(".menu-item");
+let clickedMenu = null; // хранит меню, открытое кликом
 
-  event.preventDefault();
-  event.stopPropagation();
+menuItems.forEach((item) => {
+  let closeTimeout;
+  const arrow = item.querySelector(".arrow-menu-1, .arrow-menu-2");
+  const subMenu = item.querySelector(".sub-menu");
 
-  const menuItem = arrow.closest(".menu-item");
-  const subMenu = menuItem.querySelector(".sub-menu");
+  if (!arrow || !subMenu) return;
 
-  if (subMenu) {
-    // Переключаем класс для подменю
-    subMenu.classList.toggle("open");
+  // Клик — запоминаем открытое меню
+  arrow.addEventListener("click", function (event) {
+    event.preventDefault();
+    event.stopPropagation();
 
-    // Дополнительно: добавляем класс к стрелке
-    arrow.classList.toggle("open");
+    // Проверяем, не является ли это подменю третьего уровня
+    const isThirdLevel = item.closest(".sub-menu")?.closest(".sub-menu");
 
-    // Дополнительно: добавляем класс к родительскому пункту меню
-    menuItem.classList.toggle("open");
-  }
+    if (isThirdLevel) {
+      // Для третьего уровня просто переключаем его состояние
+      subMenu.classList.toggle("open");
+      arrow.classList.toggle("open");
+      item.classList.toggle("open");
+      return; // не трогаем вышестоящие меню
+    }
+
+    // Если уже открыто кликом — закрываем
+    if (clickedMenu === item) {
+      subMenu.classList.remove("open");
+      arrow.classList.remove("open");
+      item.classList.remove("open");
+      clickedMenu = null;
+      return;
+    }
+
+    // Закрываем предыдущее открытое кликом меню
+    if (clickedMenu) {
+      const prevSubMenu = clickedMenu.querySelector(".sub-menu");
+      const prevArrow = clickedMenu.querySelector(
+        ".arrow-menu-1, .arrow-menu-2",
+      );
+      prevSubMenu.classList.remove("open");
+      prevArrow.classList.remove("open");
+      clickedMenu.classList.remove("open");
+    }
+
+    // Открываем текущее
+    subMenu.classList.add("open");
+    arrow.classList.add("open");
+    item.classList.add("open");
+    clickedMenu = item;
+  });
+
+  // Наведение — работает только если не открыто кликом
+  item.addEventListener("mouseenter", function () {
+    if (clickedMenu !== item) {
+      clearTimeout(closeTimeout);
+      subMenu.classList.add("open");
+      arrow.classList.add("open");
+      item.classList.add("open");
+    }
+  });
+
+  item.addEventListener("mouseleave", function () {
+    if (clickedMenu !== item) {
+      closeTimeout = setTimeout(() => {
+        subMenu.classList.remove("open");
+        arrow.classList.remove("open");
+        item.classList.remove("open");
+      }, 300);
+    }
+  });
 });
 
 // -----------------popup----------------------
@@ -132,9 +184,6 @@ if (swiperBlog) {
     init: true,
     slidesPerView: 1,
     grabCursor: true,
-
-    // Default parameters
-    slidesPerView: 1,
     spaceBetween: 10,
     // Responsive breakpoints
     breakpoints: {
@@ -142,6 +191,26 @@ if (swiperBlog) {
         init: true,
         slidesPerView: 3,
         spaceBetween: 22,
+      },
+    },
+  });
+}
+
+const swiperLicenses = document.querySelector(".swiper-licenses");
+
+if (swiperLicenses) {
+  const swiperLicenses = new Swiper(".swiper-licenses", {
+    // Optional parameters
+    loop: true,
+    slidesPerView: 2,
+    grabCursor: true,
+
+    spaceBetween: 10,
+    // Responsive breakpoints
+    breakpoints: {
+      767: {
+        slidesPerView: 3,
+        spaceBetween: 25,
       },
     },
   });
