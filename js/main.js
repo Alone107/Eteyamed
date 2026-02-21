@@ -216,15 +216,19 @@ if (swiperLicenses) {
   });
 }
 
-const swiperCustomDoctor2 = document.querySelector(".swiper-custom-doctor2");
+const swiperDoctor = document.querySelector(".swiper-doctor");
 
-if (swiperCustomDoctor) {
-  const swiper = new Swiper(".swiper-custom-doctor", {
-    slidesPerView: 3,
-    centeredSlides: true,
-    initialSlide: 1,
-
-    spaceBetween: 10,
+if (swiperDoctor) {
+  const swiperDoctor = new Swiper(".swiper-doctor", {
+    // Optional parameters
+    loop: true,
+    slidesPerView: 1,
+    spaceBetween: 30,
+    effect: "coverflow",
+    coverflowEffect: {
+      rotate: 20,
+      slideShadows: false,
+    },
 
     // Navigation arrows
     navigation: {
@@ -234,41 +238,70 @@ if (swiperCustomDoctor) {
   });
 }
 
-const swiperCustomDoctor = document.querySelector(".swiper-custom-doctor");
+document.addEventListener("DOMContentLoaded", function () {
+  const slidesContainer = document.querySelector(".section-slider-wrapper");
+  const slides = Array.from(document.querySelectorAll(".doctor-card-slide"));
+  const prevArrow = document.querySelector(".arrow-slide-prev");
+  const nextArrow = document.querySelector(".arrow-slide-next");
+  let currentIndex = 0;
 
-if (swiperCustomDoctor) {
-  // Инициализация Swiper
-  const swiper = new Swiper(".swiper-custom-doctor", {
-    slidesPerView: 3,
-    spaceBetween: 30,
-    centeredSlides: true,
-    loop: true,
-    navigation: {
-      nextEl: ".swiper-button-next-doctor",
-      prevEl: ".swiper-button-prev-doctor",
-    },
-  });
+  // Функция для перестроения DOM в нужном порядке
+  function rebuildSlider() {
+    // Очищаем контейнер от всех слайдов (кроме стрелок)
+    const arrows = Array.from(slidesContainer.querySelectorAll(".arrow-slide"));
+    slidesContainer.innerHTML = "";
+    arrows.forEach((arrow) => slidesContainer.appendChild(arrow));
 
-  // Функция обновления центрального блока
-  function updateCenterCard(slideElement) {
-    const centerCard = document.getElementById("center-doctor-card");
-    const slideContent = slideElement
-      .querySelector(".doctor-card")
-      .cloneNode(true);
+    // Определяем индексы соседних слайдов с цикличностью
+    const total = slides.length;
+    const prevIndex = (currentIndex - 1 + total) % total;
+    const nextIndex = (currentIndex + 1) % total;
 
-    // Очищаем и обновляем центральный блок
-    centerCard.innerHTML = "";
-    centerCard.appendChild(slideContent);
+    // Добавляем слайды в строгом порядке: prev → centered → next
+    slides[prevIndex].classList.remove(
+      "prev-slide",
+      "centered-slide",
+      "next-slide",
+    );
+    slides[prevIndex].classList.add("prev-slide");
+    slidesContainer.appendChild(slides[prevIndex]);
+
+    slides[currentIndex].classList.remove(
+      "prev-slide",
+      "centered-slide",
+      "next-slide",
+    );
+    slides[currentIndex].classList.add("centered-slide");
+    slidesContainer.appendChild(slides[currentIndex]);
+
+    slides[nextIndex].classList.remove(
+      "prev-slide",
+      "centered-slide",
+      "next-slide",
+    );
+    slides[nextIndex].classList.add("next-slide");
+    slidesContainer.appendChild(slides[nextIndex]);
   }
 
-  // Обработчик смены слайда
-  swiper.on("slideChange", function () {
-    const activeSlide = swiper.slides[swiper.activeIndex];
-    updateCenterCard(activeSlide);
+  // Функция сдвига слайдов
+  function cycleSlides(direction) {
+    if (direction === "next") {
+      currentIndex = (currentIndex + 1) % slides.length;
+    } else if (direction === "prev") {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    }
+    rebuildSlider();
+  }
+
+  // Обработчики событий
+  nextArrow.addEventListener("click", function () {
+    cycleSlides("next");
   });
 
-  // Инициализация: устанавливаем первый слайд в центр
-  document.addEventListener("DOMContentLoaded", function () {
-    updateCenterCard(swiper.slides[swiper.activeIndex]);
+  prevArrow.addEventListener("click", function () {
+    cycleSlides("prev");
   });
-}
+
+  // Инициализация при загрузке
+  rebuildSlider();
+});
