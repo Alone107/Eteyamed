@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans+Georgian:wght@100..900&family=Roboto+Condensed&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/choices.min.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header-top">
+            <div class="header-left">
+              <a href="/" class="header-logo">
+                <img src="images/Header/logo.png" alt="Этеямед лого" />
+              </a>
+              <div class="header-info">
+                Истинное здоровье <br />
+                через комплексный подход
+              </div>
+            </div>
+            <div class="header-right">
+              <div class="header-right-mobile">
+                <div class="header-tel">
+                  <a class="header-phone-link" href="tel:+79999999999"
+                    >+7 (999) <span>999-99-99</span></a
+                  >
+                  <p class="header-adress">
+                    СПБ, ул. Лиственная 20, к.2, пом. 26-н
+                  </p>
+                </div>
+                <a href="#" class="button-custom btn-popup"
+                  >Записаться онлайн</a
+                >
+                <div class="header-buttons">
+                  <a class="header-search" href="#">
+                    <img src="images/Header/search.svg" alt="search" />
+                  </a>
+                  <a class="header-eye" href="#">
+                    <img src="images/Header/eay.svg" alt="eay" />
+                  </a>
+                  <a class="header-user" href="#">
+                    <img src="images/Header/user.svg" alt="user" />
+                  </a>
+                </div>
+              </div>
+              <div class="header-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+          </div>
+          <div class="header-bottom">
+            <ul class="menu header-menu">
+              <li class="menu-item menu-item-has-children">
+                <a href="#">О нас </a>
+                <div class="arrow-menu-1">
+                  <picture>
+                    <img src="images/Header/arrow-down-blue.svg" alt="MDN" />
+                  </picture>
+                  <div class="arrow-menu-mobile-open">
+                    <svg
+                      width="12"
+                      height="12"
+                      viewBox="0 0 12 12"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M1.51498 0.263347C1.17158 -0.0845984 0.61113 -0.0882813 0.263185 0.255121C-0.0847616 0.598523 -0.0884438 1.15897 0.254958 1.50692L0.884969 0.885132L1.51498 0.263347ZM10.6504 11.6708C11.1393 11.6741 11.5382 11.2804 11.5414 10.7915L11.5938 2.82512C11.597 2.33627 11.2033 1.93736 10.7144 1.93415C10.2256 1.93094 9.82666 2.32463 9.82345 2.81349L9.77691 9.89471L2.69569 9.84818C2.20683 9.84497 1.80793 10.2387 1.80472 10.7275C1.80151 11.2164 2.1952 11.6153 2.68405 11.6185L10.6504 11.6708ZM0.884969 0.885132L0.254958 1.50692L10.0262 11.4075L10.6562 10.7857L11.2863 10.1639L1.51498 0.263347L0.884969 0.885132Z"
+                        fill="#003C7E"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <ul class="sub-menu">
+                  <li class="menu-item">
+                    <a href="#">Пункт меню 2-го уровня</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="menu-item menu-item-has-children">
+                <a href="services.html">Услуги и цены</a>
+                <div class="arrow-menu-1">
+                  <picture>
+                    <img src="images/Header/arrow-down-blue.svg" alt="MDN" />
+                  </picture>
+                  <div class="arrow-menu-mobile-open">
+                    <svg
+                      width="12"
+                      height="12"
+                      viewBox="0 0 12 12"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M1.51498 0.263347C1.17158 -0.0845984 0.61113 -0.0882813 0.263185 0.255121C-0.0847616 0.598523 -0.0884438 1.15897 0.254958 1.50692L0.884969 0.885132L1.51498 0.263347ZM10.6504 11.6708C11.1393 11.6741 11.5382 11.2804 11.5414 10.7915L11.5938 2.82512C11.597 2.33627 11.2033 1.93736 10.7144 1.93415C10.2256 1.93094 9.82666 2.32463 9.82345 2.81349L9.77691 9.89471L2.69569 9.84818C2.20683 9.84497 1.80793 10.2387 1.80472 10.7275C1.80151 11.2164 2.1952 11.6153 2.68405 11.6185L10.6504 11.6708ZM0.884969 0.885132L0.254958 1.50692L10.0262 11.4075L10.6562 10.7857L11.2863 10.1639L1.51498 0.263347L0.884969 0.885132Z"
+                        fill="#003C7E"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <ul class="sub-menu">
+                  <li class="menu-item">
+                    <a href="#">Классическая гомеопатия</a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="#">Терапия</a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="#">Педиатрия</a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="#">Неврология</a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="#">Эндокринология</a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="#">Психология</a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="#">Нутрициология</a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="#">Остеопатия</a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="#">Иглорефлексотерапия</a>
+                  </li>
+                  <li class="menu-item menu-item-has-children">
+                    <a href="#">Диагностика</a>
+                    <div class="arrow-menu-2">
+                      <img src="images/Header/arrow-right-white.svg" alt="" />
+                    </div>
+                    <ul class="sub-menu">
+                      <li class="menu-item">
+                        <a href="#">Пункт меню 3-го уровня</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="menu-item">
+                    <a href="#">Массаж медицинский</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="menu-item">
+                <a href="#">Врачи</a>
+              </li>
+              <li class="menu-item">
+                <a href="#">Обучение</a>
+              </li>
+              <li class="menu-item">
+                <a href="#">Блог</a>
+              </li>
+              <li class="menu-item">
+                <a href="#">Отзывы</a>
+              </li>
+              <li class="menu-item">
+                <a href="#">Акции</a>
+              </li>
+              <li class="menu-item">
+                <a href="#">Контакты</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <main class="main">
+        <div class="breadcrumbs">
+          <div class="container">
+            <div class="breadcrumbs__wrap" id="breadcrumbs">
+              <span
+                ><span><a href="">Главная</a></span>
+                <span class="breadcrumb_last" aria-current="page"
+                  >Врачи</span
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+        <section class="doctor-hero bg-left">
+          <div class="container">
+            <div class="doctor-hero-wrapper">
+              <div class="doctor-hero-img">
+                <img src="images/Doctor/doctor.png" alt="doctor" />
+              </div>
+              <div class="doctor-hero-info">
+                <h2 class="doctor-hero-name">Рыбина Ольга Анатольевна</h2>
+                <div class="doctor-hero-job">
+                  Гомеопат, терапевт, профессор, заведующий отделением
+                  Гомеопатии
+                </div>
+                <div class="doctor-hero-experience">
+                  <span>Стаж 26 лет</span>
+                  <a href="">Отзывы</a>
+                </div>
+                <div class="doctor-hero-buttons">
+                  <a href="#" class="doctor-hero-btn-booking button-custom"
+                    >Записаться</a
+                  >
+                  <div class="doctor-hero-btn-review-bg">
+                    <a
+                      href="#"
+                      class="doctor-hero-btn-review custom-button-second"
+                    >
+                      <span>Отзывы</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="section-text-wrapper">
+              <h3 class="section-text-title">О враче</h3>
+              <p class="section-text-desc">
+                В качестве терапевта специализируется на лечении заболеваний
+                органов дыхания, лор-органов, сердечно-сосудистой системы, ЖКТ,
+                эндокринных, неврологических патологий, опорно-двигательного
+                аппарата, дерматологии.
+              </p>
+              <p class="section-text-desc">
+                В качестве аллерголога-иммунолога специализируется на лечении,
+                диагностики и профилактики широкого перечня аллергических
+                заболеваний, поллиноза, крапивницы, хронического аллергического
+                ринита, бронхиальной астмы, атопического дерматита, пищевой
+                непереносимости и вторичного иммунодефицита на фоне вирусной и
+                бактериальной инфекции.
+              </p>
+              <p>
+                Регулярно принимает участие в научных конференциях, симпозиумах
+                по пульмонологии, внутренним болезням, аллергологии-иммунологии,
+                вакцинопрофилактике, дерматологии.
+              </p>
+            </div>
+          </div>
+        </section>
+        <section class="faq bg-right">
+          <div class="container">
+            <h2 class="faq-title">Вопрос-ответ</h2>
+            <div class="faq-accordion-wrapper">
+              <div class="accordion">
+                <details class="accordion-details" name="faq-1">
+                  <summary class="accordion-summary">
+                    <span
+                      class="accordion-title"
+                      role="term"
+                      aria-details="faq-1"
+                    >
+                      Образование
+                    </span>
+                    <div class="accordion-arrow">
+                      <svg
+                        width="10"
+                        height="6"
+                        viewBox="0 0 10 6"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M4.61438 1.67622L1.17688 5.11372C1.04591 5.24021 0.870491 5.31021 0.68841 5.30863C0.506329 5.30705 0.332154 5.23401 0.203398 5.10526C0.0746425 4.9765 0.00160849 4.80233 2.62518e-05 4.62024C-0.00155598 4.43816 0.0684401 4.26275 0.194939 4.13177L4.12341 0.203299C4.25364 0.0731111 4.43024 -2.47955e-05 4.61438 -2.47955e-05C4.79852 -2.47955e-05 4.97513 0.0731111 5.10536 0.203299L9.03383 4.13177C9.16033 4.26275 9.23032 4.43816 9.22874 4.62024C9.22716 4.80233 9.15412 4.9765 9.02537 5.10526C8.89661 5.23401 8.72244 5.30705 8.54036 5.30863C8.35827 5.31021 8.18286 5.24021 8.05188 5.11372L4.61438 1.67622Z"
+                          fill="#213850"
+                        />
+                      </svg>
+                    </div>
+                  </summary>
+                </details>
+                <div class="accordion-content" id="faq-1" role="definition">
+                  <div class="accordion-content-body">
+                    <ul>
+                      <li>1988 г. – Интернатура по травматологии-ортопедии</li>
+                      <li>
+                        1987 г. – Российский национальный исследовательский
+                        медицинский университет им. Н.И. Пирогова, Москва
+                        лечебное дело, травматология-ортопедия
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion">
+                <details class="accordion-details" name="faq-1">
+                  <summary class="accordion-summary">
+                    <span
+                      class="accordion-title"
+                      role="term"
+                      aria-details="faq-1"
+                    >
+                      Аккредитация
+                    </span>
+                    <div class="accordion-arrow">
+                      <svg
+                        width="10"
+                        height="6"
+                        viewBox="0 0 10 6"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M4.61438 1.67622L1.17688 5.11372C1.04591 5.24021 0.870491 5.31021 0.68841 5.30863C0.506329 5.30705 0.332154 5.23401 0.203398 5.10526C0.0746425 4.9765 0.00160849 4.80233 2.62518e-05 4.62024C-0.00155598 4.43816 0.0684401 4.26275 0.194939 4.13177L4.12341 0.203299C4.25364 0.0731111 4.43024 -2.47955e-05 4.61438 -2.47955e-05C4.79852 -2.47955e-05 4.97513 0.0731111 5.10536 0.203299L9.03383 4.13177C9.16033 4.26275 9.23032 4.43816 9.22874 4.62024C9.22716 4.80233 9.15412 4.9765 9.02537 5.10526C8.89661 5.23401 8.72244 5.30705 8.54036 5.30863C8.35827 5.31021 8.18286 5.24021 8.05188 5.11372L4.61438 1.67622Z"
+                          fill="#213850"
+                        />
+                      </svg>
+                    </div>
+                  </summary>
+                </details>
+                <div class="accordion-content" id="faq-1" role="definition">
+                  <div class="accordion-content-body">
+                    <p>№ 123456789, срок действия 1.01.2030 г</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="price">
+          <div class="container">
+            <h2 class="price-title">Цены</h2>
+            <div class="price-wrapper">
+              <div class="price-row-bg">
+                <div class="price-row">
+                  <div class="price-row-service">
+                    Прием (осмотр, консультация) врача гомеопата, первичный
+                  </div>
+                  <div class="price-row-price">2500 ₽</div>
+                </div>
+              </div>
+
+              <div class="price-row-bg">
+                <div class="price-row">
+                  <div class="price-row-service">
+                    Прием (осмотр, консультация) врача гомеопата, повторный 
+                  </div>
+                  <div class="price-row-price">1500 ₽</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="doctor-form-review bg-left">
+          <div class="container">
+            <div class="form-review help-form">
+              <form class="form">
+                <div class="help-form-row">
+                  <span class="wpcf7-form-control-wrap">
+                    <input
+                      type="text"
+                      class="help-name-input"
+                      placeholder="Ваше имя *"
+                      id="review-name"
+                    />
+                  </span>
+                  <span class="wpcf7-form-control-wrap">
+                    <input
+                      type="tel"
+                      class="phone help-phone-input"
+                      placeholder="Ваш телефон  *"
+                      id="review-phone"
+                    />
+                  </span>
+                  <span class="wpcf7-form-control-wrap">
+                    <input
+                      type="email"
+                      class="email-input"
+                      placeholder="Ваше E-mail *"
+                      id="review-email"
+                    />
+                  </span>
+                  <span class="wpcf7-form-control-wrap">
+                    <select
+                      name="Специальность"
+                      class="custom-select"
+                      id="custom-select-review"
+                    >
+                      <option value="">Врач</option>
+                      <option value="Невролог">Невролог</option>
+                      <option value="Гомеопат">Гомеопат</option>
+                      <option value="Эндокринолог">Эндокринолог</option>
+                    </select>
+                  </span>
+                </div>
+
+                <span class="wpcf7-form-control-wrap">
+                  <textarea name="" id="" placeholder="Ваш отзыв"></textarea>
+                </span>
+
+                <span class="wpcf7-form-control-wrap">
+                  <input
+                    type="checkbox"
+                    class="custom-check"
+                    id="custom-checkbox-help"
+                  />
+                  <label for="custom-checkbox-help"
+                    >Нажимая на кнопку, Вы даете согласие на обработку
+                    персональных данных.</label
+                  >
+                </span>
+
+                <button class="btn button-custom">Отправить</button>
+              </form>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="footer">
+        <div class="footer-map">
+          <div id="map-test" class="map-footer"></div>
+          <div class="footer-map-block">
+            <span class="footer-map-block-span">Мы находимся:</span>
+            <div class="footer-map-block-row">
+              <img src="images/Main/icon/adress-icon.svg" alt="" />
+              <div>
+                Санкт-Петербург, <br />
+                ул. Центральная, д. 45 <br />
+                <span>Метро:</span>
+                Восстания
+              </div>
+            </div>
+            <div class="footer-map-block-row">
+              <img src="images/Main/icon/phone-icon.svg" alt="" />
+              <a href="#">+7 (999) <span>999-99-99</span></a>
+            </div>
+            <div class="footer-map-block-row">
+              <img src="images/Main/icon/time-icon.svg" alt="" />
+              <div>
+                <span>График работы: <br /></span> ежедневно с 8.00 до 20.00
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <div class="footer-wrapper">
+              <div class="footer-left">
+                <a href="/" class="footer-logo">
+                  <img src="images/Header/logo.png" alt="Этеямед лого" />
+                </a>
+                <a href="#" class="footer-tel"
+                  >+7 (999) <span>999-99-99</span></a
+                >
+                <div class="footer-text">
+                  ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ "ЭТЕЯМЕД"
+                </div>
+                <div class="footer-license">
+                  Лицензия № ХХХХХХХХХХ от 00.00.202_г.
+                </div>
+              </div>
+              <div class="footer-center">
+                <ul class="menu footer-menu">
+                  <li class="menu-item">
+                    <a href="#">Документация</a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="#">Соглашение о персональных данных</a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="#">Политика конфиденциальности</a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="#">Прейскурант</a>
+                  </li>
+                </ul>
+                <ul class="menu footer-menu">
+                  <li class="menu-item">
+                    <a href="#">Вопрос-ответ</a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="#">Обратная связь</a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="#">Карта сайта</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="footer-right">
+                <div class="footer-price">
+                  Размещенный прайс не является офертой. <br />
+                  Медицинские услуги оказываются на основании договора.
+                </div>
+                <div class="footer-gos">
+                  <img src="images/Footer/rf.svg" alt="" />
+                  <img src="images/Footer/Gosuslugi.png" alt="" />
+                </div>
+              </div>
+            </div>
+            <div class="footer-protivopokazania">
+              Имеются противопоказания. Необходимо проконсультироваться со
+              специалистом
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      <div class="mobile-menu">
+        <a href="#" class="mobile-menu-block" aria-label="Услуги">
+          <img src="images/Footer/service.svg" alt="" />
+          <span>Услуги</span>
+        </a>
+        <a href="#" class="mobile-menu-block" aria-label="Врачи">
+          <img src="images/Footer/doctor.svg" alt="" />
+          <span>Врачи</span>
+        </a>
+        <a href="#" class="mobile-menu-block" aria-label="Позвонить">
+          <img src="images/Footer/phone-white.svg" alt="" />
+          <span>Позвонить</span>
+        </a>
+        <a href="#" class="mobile-menu-block" aria-label="Записаться">
+          <img src="images/Footer/calendar.svg" alt="" />
+          <span>Записаться</span>
+        </a>
+      </div>
+
+      <div class="popup-call">
+        <div class="popup-wrapper">
+          <div class="popup-close">
+            <div class="close-circle">
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <div class="popup-logo">
+            <img src="images/Footer/logo-popup.png" alt="" />
+          </div>
+          <div class="popup-title">Заказать звонок</div>
+          <div class="popup-text">
+            Мы Вам перезвоним в ближайшее время на Ваш номер телефона!
+          </div>
+          <div class="popup-form">
+            <form class="form">
+              <span class="wpcf7-form-control-wrap">
+                <label for="popup-phone" class="label-custom"
+                  >Введите номер телефона</label
+                >
+                <input
+                  type="tel"
+                  class="phone"
+                  placeholder="+7 (___) ___-__-__"
+                  id="popup-phone"
+                />
+              </span>
+              <button class="btn">Позвоните мне</button>
+              <span class="wpcf7-form-control-wrap">
+                <input
+                  type="checkbox"
+                  class="custom-check"
+                  id="custom-checkbox"
+                />
+                <label for="custom-checkbox"
+                  >Нажимая на кнопку, Вы даете согласие на обработку
+                  персональных данных.</label
+                >
+              </span>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+  <script src="js/maska-nomera.js"></script>
+
+  <script>
+    $(".phone").mask("+7 (999) 999-99-99");
+
+    $.fn.setCursorPosition = function (pos) {
+      if ($(this).get(0).setSelectionRange) {
+        $(this).get(0).setSelectionRange(pos, pos);
+      } else if ($(this).get(0).createTextRange) {
+        var range = $(this).get(0).createTextRange();
+        range.collapse(true);
+        range.moveEnd("character", pos);
+        range.moveStart("character", pos);
+        range.select();
+      }
+    };
+
+    $('input[type="tel"]').click(function () {
+      $(this).setCursorPosition(4); // set position number
+    });
+  </script>
+  <script src="js/swiper-bundle.min.js"></script>
+  <script src="js/choices.min.js"></script>
+  <script src="js/main.js"></script>
+</html>

@@ -238,70 +238,146 @@ if (swiperDoctor) {
   });
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  const slidesContainer = document.querySelector(".section-slider-wrapper");
-  const slides = Array.from(document.querySelectorAll(".doctor-card-slide"));
-  const prevArrow = document.querySelector(".arrow-slide-prev");
-  const nextArrow = document.querySelector(".arrow-slide-next");
-  let currentIndex = 0;
+const slidesContainer = document.querySelector(".section-slider-wrapper");
 
-  // Функция для перестроения DOM в нужном порядке
-  function rebuildSlider() {
-    // Очищаем контейнер от всех слайдов (кроме стрелок)
-    const arrows = Array.from(slidesContainer.querySelectorAll(".arrow-slide"));
-    slidesContainer.innerHTML = "";
-    arrows.forEach((arrow) => slidesContainer.appendChild(arrow));
+if (slidesContainer) {
+  document.addEventListener("DOMContentLoaded", function () {
+    const slides = Array.from(document.querySelectorAll(".doctor-card-slide"));
+    const prevArrow = document.querySelector(".arrow-slide-prev");
+    const nextArrow = document.querySelector(".arrow-slide-next");
+    let currentIndex = 0;
 
-    // Определяем индексы соседних слайдов с цикличностью
-    const total = slides.length;
-    const prevIndex = (currentIndex - 1 + total) % total;
-    const nextIndex = (currentIndex + 1) % total;
+    // Функция для перестроения DOM в нужном порядке
+    function rebuildSlider() {
+      // Очищаем контейнер от всех слайдов (кроме стрелок)
+      const arrows = Array.from(
+        slidesContainer.querySelectorAll(".arrow-slide"),
+      );
+      slidesContainer.innerHTML = "";
+      arrows.forEach((arrow) => slidesContainer.appendChild(arrow));
 
-    // Добавляем слайды в строгом порядке: prev → centered → next
-    slides[prevIndex].classList.remove(
-      "prev-slide",
-      "centered-slide",
-      "next-slide",
-    );
-    slides[prevIndex].classList.add("prev-slide");
-    slidesContainer.appendChild(slides[prevIndex]);
+      // Определяем индексы соседних слайдов с цикличностью
+      const total = slides.length;
+      const prevIndex = (currentIndex - 1 + total) % total;
+      const nextIndex = (currentIndex + 1) % total;
 
-    slides[currentIndex].classList.remove(
-      "prev-slide",
-      "centered-slide",
-      "next-slide",
-    );
-    slides[currentIndex].classList.add("centered-slide");
-    slidesContainer.appendChild(slides[currentIndex]);
+      // Добавляем слайды в строгом порядке: prev → centered → next
+      slides[prevIndex].classList.remove(
+        "prev-slide",
+        "centered-slide",
+        "next-slide",
+      );
+      slides[prevIndex].classList.add("prev-slide");
+      slidesContainer.appendChild(slides[prevIndex]);
 
-    slides[nextIndex].classList.remove(
-      "prev-slide",
-      "centered-slide",
-      "next-slide",
-    );
-    slides[nextIndex].classList.add("next-slide");
-    slidesContainer.appendChild(slides[nextIndex]);
-  }
+      slides[currentIndex].classList.remove(
+        "prev-slide",
+        "centered-slide",
+        "next-slide",
+      );
+      slides[currentIndex].classList.add("centered-slide");
+      slidesContainer.appendChild(slides[currentIndex]);
 
-  // Функция сдвига слайдов
-  function cycleSlides(direction) {
-    if (direction === "next") {
-      currentIndex = (currentIndex + 1) % slides.length;
-    } else if (direction === "prev") {
-      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      slides[nextIndex].classList.remove(
+        "prev-slide",
+        "centered-slide",
+        "next-slide",
+      );
+      slides[nextIndex].classList.add("next-slide");
+      slidesContainer.appendChild(slides[nextIndex]);
     }
+
+    // Функция сдвига слайдов
+    function cycleSlides(direction) {
+      if (direction === "next") {
+        currentIndex = (currentIndex + 1) % slides.length;
+      } else if (direction === "prev") {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      }
+      rebuildSlider();
+    }
+
+    // Обработчики событий
+
+    if (nextArrow) {
+      nextArrow.addEventListener("click", function () {
+        cycleSlides("next");
+      });
+    }
+
+    if (prevArrow) {
+      prevArrow.addEventListener("click", function () {
+        cycleSlides("prev");
+      });
+    }
+
+    // Инициализация при загрузке
     rebuildSlider();
-  }
+  });
+}
 
-  // Обработчики событий
-  nextArrow.addEventListener("click", function () {
-    cycleSlides("next");
+// -----------------filter--------------------
+
+const filterDoctorsWrapper = document.querySelector(".doctors-filter-wrapper");
+
+if (filterDoctorsWrapper) {
+  const filterDoctorsRow = document.querySelector(".doctors-filter-row");
+  const filterDoctorsChildren = document.querySelectorAll(
+    ".doctors-filter-item-children",
+  );
+
+  // Функция для полного закрытия фильтра (основного и всех вложенных элементов)
+  const closeAllFilters = () => {
+    filterDoctorsWrapper.classList.remove("show");
+    filterDoctorsChildren.forEach((children) => {
+      children.classList.remove("show");
+    });
+  };
+
+  // Обработчик для открытия/закрытия основного фильтра
+  filterDoctorsRow.addEventListener("click", (event) => {
+    event.stopPropagation();
+    // Если фильтр открыт — закрываем полностью, если закрыт — открываем
+    if (filterDoctorsWrapper.classList.contains("show")) {
+      closeAllFilters();
+    } else {
+      filterDoctorsWrapper.classList.add("show");
+    }
   });
 
-  prevArrow.addEventListener("click", function () {
-    cycleSlides("prev");
+  // Обработчики для раскрытия вложенных элементов
+  filterDoctorsChildren.forEach((children) => {
+    const filterChildrenArrow = children.querySelector(
+      ".doctors-filter-item-arrow",
+    );
+
+    filterChildrenArrow.addEventListener("click", (event) => {
+      event.stopPropagation();
+      // Переключаем состояние только текущего вложенного элемента
+      children.classList.toggle("show");
+    });
   });
 
-  // Инициализация при загрузке
-  rebuildSlider();
-});
+  // Обработчик клика по документу для закрытия всего при клике снаружи
+  document.addEventListener("click", (event) => {
+    // Проверяем, был ли клик вне фильтра
+    if (!filterDoctorsWrapper.contains(event.target)) {
+      closeAllFilters();
+    }
+  });
+}
+
+// -------------------------select-----------------------
+
+const customSelect = document.querySelector(".custom-select");
+
+if (customSelect) {
+  const defaulSelect = () => {
+    const choices = new Choices(customSelect, {
+      searchEnabled: false,
+      itemSelectText: "",
+    });
+  };
+
+  defaulSelect();
+}
