@@ -2514,6 +2514,7 @@ section.banner {
   box-shadow: 0 6px 21px 0 rgba(113, 184, 255, 0.09);
   background: #fffaf4;
   transition: all 0.7s;
+  cursor: pointer;
 }
 
 .accordion-summary::before {
@@ -2543,6 +2544,21 @@ section.banner {
   transition: all 0.7s;
   height: calc(100% - 1px);
   width: calc(100% - 1px);
+}
+
+.accordion-details[open] .accordion-summary {
+  box-shadow: 0 6px 21px 0 rgba(113, 184, 255, 0.09);
+  background: linear-gradient(90deg, #4d6fac 0%, #b1c0d0 100%);
+  color: #fff;
+  border-color: transparent;
+}
+
+.accordion-details[open] .accordion-summary::before {
+  background: transparent;
+}
+
+.accordion-details[open] .accordion-summary::after {
+  background: transparent;
 }
 
 .accordion-summary {
@@ -2820,6 +2836,10 @@ section.banner {
 }
 
 #choices--custom-select-review-item-choice-1 {
+  display: none;
+}
+
+.doctor-hero-name br {
   display: none;
 }
 
@@ -3695,6 +3715,106 @@ section.banner {
     height: 109px;
     top: 35%;
     left: 74%;
+  }
+  .doctor-hero-wrapper {
+    padding-left: 0;
+    gap: 20px;
+    flex-direction: column;
+    position: relative;
+    padding-bottom: 56px;
+    margin-bottom: 50px;
+  }
+  .doctor-hero-img {
+    order: 1;
+    display: flex;
+    justify-content: center;
+    padding-left: 24px;
+    padding-right: 20px;
+  }
+  .doctor-hero-img img {
+    max-height: 253px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .doctor-hero-buttons {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+  .doctor-hero-btn-booking.button-custom {
+    min-height: 40px;
+    padding: 11px 16px 7px;
+  }
+  .doctor-hero-btn-review-bg {
+    min-height: 38px;
+  }
+  .doctor-hero-btn-review.custom-button-second {
+    min-height: 38px;
+  }
+  .doctor-hero-name br {
+    display: block;
+  }
+  .doctor-hero-name {
+    line-height: 112%;
+    margin-bottom: 16px;
+  }
+  .doctor-hero-job {
+    line-height: 143%;
+    margin-bottom: 10px;
+  }
+  .doctor-hero-experience {
+    font-size: 20px;
+    line-height: 160%;
+    margin-bottom: 20px;
+  }
+  .faq-title {
+    line-height: 112%;
+    margin-bottom: 25px;
+  }
+  .accordion-title {
+    line-height: 175%;
+  }
+  .accordion-content-body ul {
+    padding-left: 1.5rem;
+  }
+  .accordion-content-body ul li {
+    font-size: 14px;
+    line-height: 157%;
+  }
+  .accordion-content-body p {
+    font-size: 14px;
+    line-height: 157%;
+  }
+  .price-title {
+    line-height: 112%;
+    margin-bottom: 25px;
+  }
+  .price-row {
+    padding-left: 16px;
+    padding-right: 14px;
+    position: relative;
+  }
+  .price-row-service {
+    font-size: 15px;
+    line-height: 93%;
+    padding-bottom: 15px;
+  }
+  .price-row-price {
+    font-size: 15px;
+    line-height: 93%;
+    text-wrap-mode: nowrap;
+    position: absolute;
+    bottom: 10px;
+    right: 17px;
+  }
+  .price-row-bg,
+  .price-row::before,
+  .price-row::after {
+    border-radius: 10px;
+  }
+  .form-review textarea {
+    min-height: 164px;
   }
 }
 @media (max-width: 420px) {
