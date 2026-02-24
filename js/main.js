@@ -204,6 +204,9 @@ if (swiperLicenses) {
     loop: true,
     slidesPerView: 2,
     grabCursor: true,
+    autoplay: {
+      delay: 4000,
+    },
 
     spaceBetween: 10,
     // Responsive breakpoints
@@ -381,3 +384,51 @@ if (customSelect) {
 
   defaulSelect();
 }
+
+// ---------------------tabs----------------------------
+
+document.addEventListener("DOMContentLoaded", function () {
+  const tabTriggers = document.querySelectorAll(".direction-block-tab");
+  const tabPanels = document.querySelectorAll(".direction-tab-content");
+
+  // Изначально скрываем все панели (ни одна не активна)
+  tabPanels.forEach((panel) => {
+    panel.classList.remove("active");
+  });
+
+  // Обработчики для табов
+  tabTriggers.forEach((trigger) => {
+    trigger.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      const tabId = this.getAttribute("data-tabs");
+      const targetPanel = document.querySelector(
+        `[data-tabs-content="${tabId}"]`,
+      );
+
+      // Сначала убираем активный класс у всех панелей
+      tabPanels.forEach((panel) => {
+        panel.classList.remove("active");
+      });
+
+      // Если кликнули на тот же таб — закрываем его (убираем active у всех)
+      // Иначе показываем нужную панель
+      if (!targetPanel.classList.contains("active")) {
+        setTimeout(() => {
+          if (targetPanel) {
+            targetPanel.classList.add("active");
+          }
+        }, 10);
+      }
+    });
+  });
+
+  // Дополнительно: закрываем все табы при клике вне их
+  document.addEventListener("click", function (e) {
+    if (!e.target.closest(".direction-block-tab")) {
+      tabPanels.forEach((panel) => {
+        panel.classList.remove("active");
+      });
+    }
+  });
+});
