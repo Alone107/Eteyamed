@@ -232,6 +232,9 @@ if (swiperDoctor) {
       rotate: 20,
       slideShadows: false,
     },
+    // autoplay: {
+    //   delay: 4000,
+    // },
 
     // Navigation arrows
     navigation: {
@@ -249,6 +252,26 @@ if (slidesContainer) {
     const prevArrow = document.querySelector(".arrow-slide-prev");
     const nextArrow = document.querySelector(".arrow-slide-next");
     let currentIndex = 0;
+
+    // Переменные для автоплея
+    let autoPlayTimeout;
+    const autoPlayDelay = 100000; // 5 секунд
+
+    // Функция запуска автоплея (с таймаутом вместо интервала)
+    function startAutoPlay() {
+      stopAutoPlay();
+      autoPlayTimeout = setTimeout(() => {
+        cycleSlides("next");
+        startAutoPlay(); // рекурсивно перезапускаем автоплей
+      }, autoPlayDelay);
+    }
+
+    function stopAutoPlay() {
+      if (autoPlayTimeout) {
+        clearTimeout(autoPlayTimeout);
+        autoPlayTimeout = null;
+      }
+    }
 
     // Функция для перестроения DOM в нужном порядке
     function rebuildSlider() {
@@ -279,6 +302,7 @@ if (slidesContainer) {
         "next-slide",
       );
       slides[currentIndex].classList.add("centered-slide");
+      slides[currentIndex].classList.add("animation-slide");
       slidesContainer.appendChild(slides[currentIndex]);
 
       slides[nextIndex].classList.remove(
@@ -304,18 +328,34 @@ if (slidesContainer) {
 
     if (nextArrow) {
       nextArrow.addEventListener("click", function () {
+        stopAutoPlay();
         cycleSlides("next");
+        // Запускаем автоплей через 5 секунд после клика
+        setTimeout(startAutoPlay, autoPlayDelay);
       });
     }
 
     if (prevArrow) {
       prevArrow.addEventListener("click", function () {
+        stopAutoPlay();
         cycleSlides("prev");
+        // Запускаем автоплей через 5 секунд после клика
+        setTimeout(startAutoPlay, autoPlayDelay);
       });
     }
 
+    // Обработка фокуса для доступности
+    slidesContainer.addEventListener("focusin", () => {
+      stopAutoPlay();
+    });
+
+    slidesContainer.addEventListener("focusout", () => {
+      startAutoPlay();
+    });
+
     // Инициализация при загрузке
     rebuildSlider();
+    startAutoPlay(); // Запуск автоплея
   });
 }
 
@@ -334,13 +374,14 @@ if (filterDoctorsWrapper) {
     filterDoctorsWrapper.classList.remove("show");
     filterDoctorsChildren.forEach((children) => {
       children.classList.remove("show");
+      // Сбрасываем флаг при полном закрытии
+      children._isOpenedByClick = false;
     });
   };
 
   // Обработчик для открытия/закрытия основного фильтра
   filterDoctorsRow.addEventListener("click", (event) => {
     event.stopPropagation();
-    // Если фильтр открыт — закрываем полностью, если закрыт — открываем
     if (filterDoctorsWrapper.classList.contains("show")) {
       closeAllFilters();
     } else {
@@ -350,20 +391,46 @@ if (filterDoctorsWrapper) {
 
   // Обработчики для раскрытия вложенных элементов
   filterDoctorsChildren.forEach((children) => {
+    // Добавляем флаг прямо к элементу
+    children._isOpenedByClick = false;
+
     const filterChildrenArrow = children.querySelector(
       ".doctors-filter-item-arrow",
     );
 
+    // Обработчик клика на стрелку
     filterChildrenArrow.addEventListener("click", (event) => {
       event.stopPropagation();
-      // Переключаем состояние только текущего вложенного элемента
+
+      // Переключаем флаг и класс
+      children._isOpenedByClick = !children._isOpenedByClick;
       children.classList.toggle("show");
+    });
+
+    // Обработчик наведения: открываем только если не открыт кликом
+    children.addEventListener("mouseenter", () => {
+      if (!children._isOpenedByClick) {
+        children.classList.add("show");
+      }
+    });
+
+    // Обработчик ухода курсора: закрываем только если не открыт кликом И курсор ушёл с всего контейнера
+    children.addEventListener("mouseleave", () => {
+      setTimeout(() => {
+        // Проверяем, не наведён ли курсор на какой‑либо дочерний элемент
+        const isHovered = Array.from(children.querySelectorAll("*")).some(
+          (el) => el.matches(":hover"),
+        );
+
+        if (!children._isOpenedByClick && !isHovered) {
+          children.classList.remove("show");
+        }
+      }, 100); // Небольшая задержка для предотвращения ложных срабатываний
     });
   });
 
   // Обработчик клика по документу для закрытия всего при клике снаружи
   document.addEventListener("click", (event) => {
-    // Проверяем, был ли клик вне фильтра
     if (!filterDoctorsWrapper.contains(event.target)) {
       closeAllFilters();
     }

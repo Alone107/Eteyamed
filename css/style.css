@@ -117,7 +117,7 @@ img {
   color: var(--color-blue);
   box-shadow: 0 6px 21px 0 rgba(113, 184, 255, 0.09);
   transition: all 0.7s;
-  background: #fffaf4;
+  background: transparent;
   position: relative;
   max-width: 336px;
   width: 100%;
@@ -129,30 +129,18 @@ img {
 .custom-button-second::before {
   content: "";
   position: absolute;
-  top: -1px; /* толщина границы + небольшой запас */
-  left: -1px;
-  right: -1px;
-  bottom: -1px;
-  background: linear-gradient(90deg, #4d6fac 0%, #b1c0d0 100%);
-  border-radius: 27px; /* такое же скругление, как у родителя */
-  z-index: -1;
-  transition: all 0.7s;
-}
-
-.custom-button-second::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
+  padding: 1px;
+  background-image: linear-gradient(90deg, #4d6fac 0%, #b1c0d0 0%);
   backdrop-filter: blur(22.7524032593px);
-  box-shadow: 0 4px 4px 0 rgba(208, 230, 244, 0.5);
-  background: rgba(113, 184, 255, 0.09);
   width: 100%;
   height: 100%;
-  border-radius: 27px;
+  border-radius: inherit; /* такое же скругление, как у родителя */
+  -webkit-mask: conic-gradient(#000 0 0) content-box, conic-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask: conic-gradient(#000 0 0) content-box exclude, conic-gradient(#000 0 0);
+  z-index: -1;
   transition: all 0.7s;
-  height: calc(100% - 1px);
-  width: calc(100% - 1px);
 }
 
 .custom-button-second span {
@@ -172,10 +160,6 @@ img {
   background: linear-gradient(90deg, #4d6fac 0%, #b1c0d0 100%);
   color: #fff;
   border-color: transparent;
-}
-
-.custom-button-second:hover::before {
-  background: transparent;
 }
 
 .custom-button-second:hover::after {
@@ -1954,8 +1938,7 @@ section.banner {
 .button-custom.doctor-card__action--record {
   width: 100%;
   max-width: 336px;
-  height: 45px;
-  padding: 13px 16px;
+  padding: 12px 16px;
 }
 
 .doctor-card__action--more {
@@ -1964,41 +1947,13 @@ section.banner {
   color: var(--color-blue);
   box-shadow: 0 6px 21px 0 rgba(113, 184, 255, 0.09);
   transition: all 0.7s;
-  background: #fffaf4;
+  background: transparent;
   position: relative;
   max-width: 336px;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.doctor-card__action--more::before {
-  content: "";
-  position: absolute;
-  top: -1px; /* толщина границы + небольшой запас */
-  left: -1px;
-  right: -1px;
-  bottom: -1px;
-  background: linear-gradient(90deg, #4d6fac 0%, #b1c0d0 100%);
-  border-radius: 27px; /* такое же скругление, как у родителя */
-  z-index: -1;
-}
-
-.doctor-card__action--more::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  backdrop-filter: blur(22.7524032593px);
-  box-shadow: 0 4px 4px 0 rgba(208, 230, 244, 0.5);
-  background: rgba(113, 184, 255, 0.09);
-  width: 100%;
-  height: 100%;
-  border-radius: 27px;
-  transition: all 0.7s;
-  height: calc(100% - 1px);
-  width: calc(100% - 1px);
 }
 
 .doctor-card__action--more span {
@@ -2158,6 +2113,34 @@ section.banner {
   padding-right: 16px;
 }
 
+.animation-slide.prev-slide .doctor-card {
+  animation: fadeIn 0.4s ease-in-out forwards;
+}
+
+.animation-slide.next-slide .doctor-card {
+  animation: fadeIn 0.4s ease-in-out forwards;
+}
+
+.animation-slide.centered-slide .doctor-card .doctor-card__media {
+  animation: fadeIn 0.7s ease-in-out forwards;
+}
+
+.animation-slide.centered-slide .doctor-card .doctor-card__content {
+  animation: fadeIn 0.3s ease-in-out forwards;
+}
+
+.animation-slide.centered-slide .doctor-card .doctor-card__actions {
+  animation: fadeIn 1.3s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 .doctors-section-title {
   font-family: var(--second-family);
   font-weight: 400;
@@ -2194,7 +2177,7 @@ section.banner {
   background: linear-gradient(90deg, #4d6fac 0%, #b1c0d0 100%);
   border-radius: 41px;
   padding: 10px 10px 10px 21px;
-  z-index: 100;
+  z-index: 80;
   position: relative;
   align-items: center;
   cursor: pointer;
@@ -2229,7 +2212,7 @@ section.banner {
 .doctors-filter-block {
   position: absolute;
   top: 90%;
-  z-index: 90;
+  z-index: 70;
   width: 100%;
   padding-left: 13px;
   padding-right: 18px;
@@ -2248,6 +2231,10 @@ section.banner {
   visibility: visible;
 }
 
+.doctors-filter-block .doctors-filter-sub-menu ul {
+  padding: 0;
+}
+
 .doctors-filter-block ul {
   backdrop-filter: blur(22.7524032593px);
   background: #fff;
@@ -2258,6 +2245,10 @@ section.banner {
 
 .doctors-filter-item {
   border-bottom: 1px solid #dbdbdb;
+}
+
+.doctors-filter-item:last-child {
+  border-bottom: none;
 }
 
 .doctors-filter-item a {
@@ -2300,7 +2291,7 @@ section.banner {
   backdrop-filter: blur(22.7524032593px);
   background: #fff;
   border-radius: 0px 10px 10px 10px;
-  padding: 7px 10px 0 8px;
+  padding: 0px 10px 0 8px;
   position: absolute;
   top: 0;
   left: 105%;
@@ -2553,13 +2544,21 @@ section.banner {
   display: flex;
   flex-direction: column;
   gap: 35px;
+  margin-bottom: 20px;
+}
+
+.faq-text {
+  font-family: var(--font-family);
+  font-weight: 300;
+  font-size: clamp(0.875rem, 0.6712rem + 0.4823vw, 1.25rem);
+  line-height: 160%;
+  color: #000;
+  padding-left: 30px;
+  margin-top: 20px;
 }
 
 .accordion-details {
   border-radius: 27px;
-  backdrop-filter: blur(22.7524032593px);
-  box-shadow: 0 4px 4px 0 rgba(208, 230, 244, 0.5);
-  background: rgba(113, 184, 255, 0.09);
 }
 
 .accordion-summary {
@@ -2570,7 +2569,7 @@ section.banner {
   padding-bottom: 13px;
   position: relative;
   box-shadow: 0 6px 21px 0 rgba(113, 184, 255, 0.09);
-  background: #fffaf4;
+  background: tr;
   transition: all 0.7s;
   cursor: pointer;
 }
@@ -2578,30 +2577,17 @@ section.banner {
 .accordion-summary::before {
   content: "";
   position: absolute;
-  top: -1px; /* толщина границы + небольшой запас */
-  left: -1px;
-  right: -1px;
-  bottom: -1px;
-  background: linear-gradient(90deg, #4d6fac 0%, #b1c0d0 100%);
-  border-radius: 27px; /* такое же скругление, как у родителя */
-  z-index: -1;
-  transition: all 0.7s;
-}
-
-.accordion-summary::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
+  padding: 1px;
+  background-image: linear-gradient(90deg, #4d6fac 0%, #b1c0d0 0%);
   backdrop-filter: blur(22.7524032593px);
-  box-shadow: 0 4px 4px 0 rgba(208, 230, 244, 0.5);
-  background: rgba(113, 184, 255, 0.09);
   width: 100%;
   height: 100%;
-  border-radius: 27px;
+  border-radius: inherit;
+  -webkit-mask: conic-gradient(#000 0 0) content-box, conic-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask: conic-gradient(#000 0 0) content-box exclude, conic-gradient(#000 0 0);
   transition: all 0.7s;
-  height: calc(100% - 1px);
-  width: calc(100% - 1px);
 }
 
 .accordion-details[open] .accordion-summary {
@@ -2702,44 +2688,26 @@ section.banner {
   gap: 10px;
   padding-top: 12px;
   padding-bottom: 11px;
-  background: #fffaf4;
+  background: transparent;
   border-radius: 27px;
 }
 
 .price-row::before {
   content: "";
   position: absolute;
-  top: -1px; /* толщина границы + небольшой запас */
-  left: -1px;
-  right: -1px;
-  bottom: -1px;
-  background: linear-gradient(90deg, #4d6fac 0%, #b1c0d0 100%);
-  border-radius: 27px; /* такое же скругление, как у родителя */
-  z-index: -1;
-  transition: all 0.7s;
-}
-
-.price-row::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
+  padding: 1px;
+  background-image: linear-gradient(90deg, #4d6fac 0%, #b1c0d0 0%);
   backdrop-filter: blur(22.7524032593px);
-  box-shadow: 0 4px 4px 0 rgba(208, 230, 244, 0.5);
-  background: rgba(113, 184, 255, 0.09);
   width: 100%;
   height: 100%;
-  border-radius: 27px;
+  border-radius: inherit;
+  -webkit-mask: conic-gradient(#000 0 0) content-box, conic-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  -webkit-mask: conic-gradient(#000 0 0) content-box, conic-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask: conic-gradient(#000 0 0) content-box exclude, conic-gradient(#000 0 0);
   transition: all 0.7s;
-  height: calc(100% - 1px);
-  width: calc(100% - 1px);
-}
-
-.price-row-bg {
-  backdrop-filter: blur(22.7524032593px);
-  box-shadow: 0 4px 4px 0 rgba(208, 230, 244, 0.5);
-  background: rgba(113, 184, 255, 0.09);
-  border-radius: 27px;
 }
 
 .price-row-service {
@@ -2759,16 +2727,14 @@ section.banner {
 
 .doctor-hero-btn-review.custom-button-second {
   max-width: 193px;
-  min-height: 43px;
+  min-height: 45px;
 }
 
 .doctor-hero-btn-review-bg {
-  min-height: 43px;
+  min-height: 45px;
   max-width: 193px;
   width: 100%;
   backdrop-filter: blur(22.7524032593px);
-  box-shadow: 0 4px 4px 0 rgba(208, 230, 244, 0.5);
-  background: rgba(113, 184, 255, 0.09);
   border-radius: 20px;
 }
 
@@ -2818,6 +2784,18 @@ section.banner {
   margin-right: 0px;
   transform: translate(0%, -50%);
   transition: all 0.7s;
+  pointer-events: none;
+}
+
+.choices__list.choices__list--dropdown {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition-duration: 0.3s;
+}
+
+.is-open .choices__list.choices__list--dropdown {
+  display: grid;
+  grid-template-rows: 1fr;
 }
 
 .choices[data-type*=select-one].is-open::after {
@@ -2830,15 +2808,15 @@ section.banner {
 }
 
 .choices__list--dropdown.choices__list {
-  margin-left: 20px;
-  margin-right: 20px;
   background: #fffaf4;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
-.choices__list--dropdown .choices__list,
-.choices__list[aria-expanded] .choices__list {
-  height: 0;
-  transition: all 0.7s;
+.choices {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .choices__list--dropdown {
@@ -2846,15 +2824,16 @@ section.banner {
   border-bottom-right-radius: 10px;
 }
 
-.is-open .choices__list--dropdown .choices__list,
-.choices__list[aria-expanded] .choices__list {
-  height: auto;
-}
-
 .choices__list--dropdown,
 .choices__list[aria-expanded] {
-  width: 85%;
+  width: 82%;
   transition: all 0.7s;
+  z-index: -2;
+}
+
+.is-open .choices__list--dropdown,
+.is-open .choices__list[aria-expanded] {
+  z-index: 1;
 }
 
 .form-review textarea {
@@ -3622,6 +3601,17 @@ input.button-custom {
   .education-row {
     order: 2;
   }
+  .button-custom.doctor-card__action--record {
+    padding: 9px 16px;
+  }
+  .button-custom {
+    font-size: 13px;
+    line-height: 123%;
+  }
+  .doctor-card__action--more span {
+    font-size: 13px;
+    line-height: 123%;
+  }
 }
 @media (max-width: 676px) {
   .hero-wrapper {
@@ -4061,7 +4051,7 @@ input.button-custom {
   }
   .doctor-card__action--more {
     max-width: none;
-    padding: 15px 10px;
+    padding: 12px 10px;
   }
   .doctor-card__name {
     line-height: 109%;
@@ -4136,10 +4126,6 @@ input.button-custom {
     line-height: 123%;
     padding: 7px 15px;
     max-width: 159px;
-  }
-  .button-custom {
-    font-size: 13px;
-    line-height: 123%;
   }
   .custom-button-second {
     font-size: 13px;
@@ -4259,11 +4245,6 @@ input.button-custom {
     position: absolute;
     bottom: 10px;
     right: 17px;
-  }
-  .price-row-bg,
-  .price-row::before,
-  .price-row::after {
-    border-radius: 10px;
   }
   .education-info-title {
     padding-right: 0;
